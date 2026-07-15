@@ -2529,7 +2529,8 @@ p {
   }
 
   .ai-hero-mark-small {
-    max-width: 96px;
+    grid-area: mark;
+    max-width: 100px;
   }
 
   .ai-page .page-hero {
@@ -2538,12 +2539,26 @@ p {
   }
 
   .ai-hero-with-mark {
-    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-areas:
+      "mark heading"
+      "lead lead";
     align-items: center;
-    gap: 14px;
+    gap: 16px 16px;
+  }
+
+  .ai-hero-copy {
+    display: contents;
+    min-height: 0;
+  }
+
+  .ai-hero-heading {
+    grid-area: heading;
+    align-self: center;
   }
 
   .ai-hero-copy .lead {
+    grid-area: lead;
     max-width: none;
     text-align: left;
     font-size: 15px;
