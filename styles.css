@@ -2553,6 +2553,11 @@ p {
     width: 88%;
   }
 
+  .home-hero .brand-logo-video,
+  .dawn-hero .brand-logo-video {
+    width: 96%;
+  }
+
   .ai-hero-mark-small {
     grid-area: mark;
     max-width: 100px;
@@ -2579,7 +2584,8 @@ p {
 
   .ai-hero-heading {
     grid-area: heading;
-    align-self: center;
+    align-self: end;
+    transform: translateY(4px);
   }
 
   .ai-hero-copy .lead {
@@ -2594,11 +2600,11 @@ p {
     font-size: 13px;
     letter-spacing: 0.18em;
     margin: 0 0 2px;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
 
   .ai-hero-copy h1 {
-    font-size: clamp(34px, 11vw, 46px);
+    font-size: clamp(30px, 9.6vw, 40px);
     margin: 0 0 14px;
   }
 
