@@ -153,5 +153,50 @@
     </main>
 
     <footer class="footer">东方破晓 · 向光而行</footer>
+    <script>
+      (() => {
+        const wall = document.querySelector(".ai-free-wall");
+        if (!wall) return;
+        const images = Array.from(wall.querySelectorAll(":scope > img"));
+        if (!images.length) return;
+
+        const renderWall = () => {
+          const count = window.matchMedia("(max-width: 640px)").matches ? 2 : 4;
+          wall.replaceChildren();
+          wall.classList.add("is-balanced");
+          wall.style.setProperty("--ai-wall-columns", count);
+
+          const columns = Array.from({ length: count }, () => {
+            const column = document.createElement("div");
+            column.className = "ai-wall-column";
+            wall.appendChild(column);
+            return { element: column, height: 0 };
+          });
+
+          images.forEach((image, index) => {
+            const ratio = image.naturalWidth ? image.naturalHeight / image.naturalWidth : 1.55;
+            const target = columns.reduce((lowest, column) => column.height < lowest.height ? column : lowest, columns[0]);
+            image.style.setProperty("--stagger", `${((index % 5) - 2) * 4}px`);
+            target.element.appendChild(image);
+            target.height += ratio;
+          });
+        };
+
+        let lastMode = "";
+        const scheduleRender = () => {
+          const mode = window.matchMedia("(max-width: 640px)").matches ? "mobile" : "desktop";
+          if (mode === lastMode && wall.classList.contains("is-balanced")) return;
+          lastMode = mode;
+          renderWall();
+        };
+
+        if (document.readyState === "complete") {
+          scheduleRender();
+        } else {
+          window.addEventListener("load", scheduleRender, { once: true });
+        }
+        window.addEventListener("resize", scheduleRender);
+      })();
+    </script>
   </body>
 </html>
