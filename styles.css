@@ -1440,12 +1440,16 @@ p {
     background:
       radial-gradient(circle at 50% -8%, rgba(243, 179, 65, 0.18), transparent 24rem),
       linear-gradient(180deg, #050402 0%, #090603 48%, #030201 100%);
+    padding-top: 116px;
   }
 
   .site-header {
-    position: static;
-    background: rgba(5, 4, 2, 0.94);
-    backdrop-filter: none;
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    background: rgba(5, 4, 2, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
 
   .nav {
@@ -2614,12 +2618,14 @@ p {
   }
 
   .ai-case-overview video {
+    order: 2;
     width: min(100%, 300px);
     max-height: 62vh;
     justify-self: center;
   }
 
   .ai-case-story {
+    order: 1;
     gap: 12px;
   }
 
