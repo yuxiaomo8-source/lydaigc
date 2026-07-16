@@ -1632,7 +1632,7 @@ p {
 
   .dawn-video.bili-embed {
     margin-top: -10px;
-    border: 1px solid var(--line);
+    border: 0;
     background: transparent;
   }
 
