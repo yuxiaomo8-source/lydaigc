@@ -1630,6 +1630,10 @@ p {
     aspect-ratio: 16 / 9;
   }
 
+  .dawn-video.bili-embed {
+    aspect-ratio: 16 / 8.75;
+  }
+
   .hero-logo img {
     width: 74%;
   }
