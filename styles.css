@@ -1631,7 +1631,8 @@ p {
   }
 
   .dawn-video.bili-embed {
-    border: 0;
+    margin-top: -10px;
+    border: 1px solid var(--line);
     background: transparent;
   }
 
