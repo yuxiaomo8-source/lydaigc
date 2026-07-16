@@ -1633,7 +1633,7 @@ p {
   .dawn-video-shell {
     width: 100%;
     aspect-ratio: 16 / 9;
-    border: 1px solid var(--line);
+    border: 0;
     background: #000;
     overflow: hidden;
   }
