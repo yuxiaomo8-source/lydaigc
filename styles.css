@@ -1630,22 +1630,6 @@ p {
     aspect-ratio: 16 / 9;
   }
 
-  .dawn-video-shell {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 0;
-    background: transparent;
-    overflow: hidden;
-  }
-
-  .dawn-video-shell .dawn-video.bili-embed {
-    width: 100%;
-    height: calc(100% + 18px);
-    border: 0;
-    aspect-ratio: auto;
-    transform: translateY(-18px);
-  }
-
   .hero-logo img {
     width: 74%;
   }
