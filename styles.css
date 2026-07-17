@@ -1350,7 +1350,7 @@ p {
 }
 
 .skill {
-  padding: 22px;
+  padding: 20px 22px;
   border: 1px solid var(--line);
   background: transparent;
 }
@@ -2547,7 +2547,7 @@ p {
 }
 
 .profile-avatar:hover img {
-  transform: scale(1.035);
+  transform: scale(1.22);
   filter: contrast(1.03) saturate(1.03) brightness(1.02);
 }
 
