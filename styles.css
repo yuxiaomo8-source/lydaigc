@@ -24,9 +24,7 @@ html {
 body {
   margin: 0;
   color: var(--text);
-  background:
-    radial-gradient(circle at 50% -12%, rgba(243, 179, 65, 0.22), transparent 32rem),
-    linear-gradient(180deg, #050402 0%, #090603 44%, #030201 100%);
+  background: linear-gradient(180deg, #050402 0%, #090603 44%, #030201 100%);
   font-family: "Noto Serif SC", "Songti SC", "Microsoft YaHei", serif;
   letter-spacing: 0;
 }
@@ -36,21 +34,14 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.18;
-  background: radial-gradient(circle at 50% 10%, rgba(243, 179, 65, 0.12), transparent 36rem);
-  mask-image: linear-gradient(to bottom, #000, transparent 76%);
+  opacity: 1;
+  background: radial-gradient(ellipse 68vw 23rem at 50% -4rem, rgba(243, 179, 65, 0.23), rgba(243, 179, 65, 0.105) 38%, rgba(5, 4, 2, 0) 72%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 72%);
+  z-index: -1;
 }
 
 body.soft-glow-page::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 28% 18%, rgba(243, 179, 65, 0.16), transparent 34rem),
-    radial-gradient(circle at 72% 8%, rgba(243, 179, 65, 0.1), transparent 32rem);
-  mask-image: linear-gradient(to bottom, #000, transparent 82%);
+  content: none;
 }
 
 a {
@@ -1449,9 +1440,7 @@ p {
 
 @media (max-width: 640px) {
   body {
-    background:
-      radial-gradient(circle at 50% -8%, rgba(243, 179, 65, 0.18), transparent 24rem),
-      linear-gradient(180deg, #050402 0%, #090603 48%, #030201 100%);
+    background: linear-gradient(180deg, #050402 0%, #090603 48%, #030201 100%);
     padding-top: 116px;
   }
 
