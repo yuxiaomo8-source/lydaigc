@@ -1,0 +1,99 @@
+const SITE_LOCKED = true;
+
+const lockedPage = `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>404 | 东方破晓</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050402;
+      --text: #f2eadc;
+      --muted: rgba(242, 234, 220, 0.68);
+      --gold: #c89a52;
+      --line: rgba(200, 154, 82, 0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 70vw 22rem at 50% -6rem, rgba(213, 151, 55, 0.28), transparent 70%),
+        linear-gradient(180deg, #050402 0%, #090603 46%, #030201 100%);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+    }
+
+    main {
+      width: min(680px, 100%);
+      text-align: center;
+    }
+
+    .code {
+      margin: 0 0 18px;
+      color: var(--gold);
+      font-size: clamp(58px, 12vw, 112px);
+      line-height: 0.92;
+      letter-spacing: 0;
+      font-weight: 300;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 18px auto 0;
+      max-width: 32em;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .rule {
+      width: min(360px, 72%);
+      height: 1px;
+      margin: 28px auto 0;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="code">404</div>
+    <h1>页面暂未开放</h1>
+    <p>作品集正在进行临时维护。如需查看完整内容，请联系作者获取最新展示方式。</p>
+    <div class="rule"></div>
+  </main>
+</body>
+</html>`;
+
+export default {
+  fetch(request, env) {
+    if (!SITE_LOCKED) {
+      return env.ASSETS.fetch(request);
+    }
+
+    return new Response(lockedPage, {
+      status: 404,
+      headers: {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "no-store, no-cache, must-revalidate",
+        "x-robots-tag": "noindex, nofollow",
+      },
+    });
+  },
+};
